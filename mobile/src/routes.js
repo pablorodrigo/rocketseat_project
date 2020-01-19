@@ -7,8 +7,27 @@ import Profile from "./pages/Profile";
 //creating routes
 const Routes = createAppContainer(
     createStackNavigator({
-        Main,
-        Profile
+        Main: {
+            screen: Main,
+            navigationOptions: {
+                title: 'DevRadar'
+            }
+        },
+        Profile: {
+            screen: Profile,
+            navigationOptions: {
+                title: 'Github Perfil'
+            }
+        }
+    }, {
+        //for all screens
+        defaultNavigationOptions: {
+            headerTintColor: '#ffffff',
+            headerBackTitleVisible: false, //hide title on back button (ios)
+            headerStyle: {
+                backgroundColor: '#7d40e7'
+            }
+        }
     })
 );
 

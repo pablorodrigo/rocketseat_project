@@ -1,27 +1,13 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import StatusBar from "react-native-web/src/exports/StatusBar";
 
 import Routes from './src/routes'
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Hello android!</Text>
-        </View>
+        <>
+            <StatusBar barStlye ="light-content" backgroundColor="#7d40e7"/>
+            <Routes/>
+        </>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#ff3126',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-    title: {
-        fontWeight: "bold",
-        fontSize: 32,
-        color: "#202cff"
-    }
-});
