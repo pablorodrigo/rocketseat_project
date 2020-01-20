@@ -8,6 +8,7 @@
 const axies = require('axios');
 const Dev = require('../models/Dev');
 const parseStringAsArray = require('../utils/parseStringAsArray');
+const {findConnections, sendMessage} = require('../websocket');
 
 module.exports = {
 
@@ -50,6 +51,14 @@ module.exports = {
 
             //console.log(name, avatar_url, bio, github_username);
             //console.log(apiResponse.data);
+
+            //filter connections
+            const sendSocketMessageTo = findConnections(
+                {latitude, longitude},
+                techsArray);
+            console.log(sendSocketMessageTo);
+
+            sendMessage(sendSocketMessageTo, 'new-dev', dev);
 
         }
 
